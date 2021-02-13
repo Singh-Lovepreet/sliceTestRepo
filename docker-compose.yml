@@ -1,23 +1,18 @@
-version : '3'
-
+version: "3"
 services:
-  nodeapp:
+  app:
     image: nodeapp
-    ports:
-      - '7007:7007'
     depends_on:
-      - pg
-
-  pg:
-    image: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: mysecretpassword
+      - postgres
     ports:
-      - '5432:5432'
-    volumes:
-      - wordapp-db:/var/lib/postgresql/data
+      - "7007:7007"
 
 
-volumes:
-  wordapp-db:
+
+  postgres:
+    image: postgres:10.4
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+
