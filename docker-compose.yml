@@ -15,7 +15,8 @@ services:
     image: nodeapp
     ports:
       - '7007:7007'
-
+    depends_on:
+      - pg
 
 volumes:
   wordapp-db:
