@@ -1,6 +1,13 @@
 version : '3'
 
 services:
+  nodeapp:
+    image: nodeapp
+    ports:
+      - '7007:7007'
+    depends_on:
+      - pg
+
   pg:
     image: postgres
     environment:
@@ -11,12 +18,6 @@ services:
     volumes:
       - wordapp-db:/var/lib/postgresql/data
 
-  nodeapp:
-    image: nodeapp
-    ports:
-      - '7007:7007'
-    depends_on:
-      - pg
 
 volumes:
   wordapp-db:
