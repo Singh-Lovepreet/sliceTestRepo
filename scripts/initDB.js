@@ -4,11 +4,19 @@ const wordQueries = require('../queries/pgQueries').getInstance();
 const initTable = async () => {
 
   console.log("Table Initializing Start ............ ");
-  const query = wordQueries.createTableQuery();
-  const res = await wordRepo.createTable({query});
+  // const checkTableExistsQuery = wordQueries.checkTableExistsQuery();
+  // try {
+  //   const checkRes = await wordRepo.find({query: checkTableExistsQuery});
+  //   if (checkRes[0].length) {
+  //     return ("Table already exist");
+  //   }
+  // } catch (e) {
+  //   console.log(e);
+  // }
+  const queryCreateTable = wordQueries.createTableQuery();
+  const res = await wordRepo.createTable({query: queryCreateTable});
   console.log(res);
   return ("Table Initializing Done")
-
 };
 
 initTable().then((res) => {

@@ -15,13 +15,16 @@ class PgQueries {
   }
 
   createTableQuery(){
-    return `CREATE TABLE words  (
+    return `CREATE TABLE IF NOT EXISTS words  (
       word VARCHAR ( 100 ) PRIMARY KEY,
       count BIGINT  NOT NULL,
       created_at timestamp default current_timestamp
         )`
   }
 
+  checkTableExistsQuery(){
+    return `Select * from  words limit 1;`
+  }
   static getInstance() {
     if (!instance) instance = new PgQueries();
     return instance;
