@@ -1,0 +1,11 @@
+{
+  "psqlConfig": {
+    "user": "postgres",
+    "host": "pg",
+    "database": "postgres",
+    "password": "mysecretpassword",
+    "port": 5432
+  }
+}
+
+

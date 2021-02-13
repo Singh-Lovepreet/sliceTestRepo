@@ -1,0 +1,21 @@
+version : '3'
+
+services:
+  pg:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - '5432:5432'
+    volumes:
+      - wordapp-db:/var/lib/postgresql/data
+
+  nodeapp:
+    image: nodeapp
+    ports:
+      - '7007:7007'
+
+
+volumes:
+  wordapp-db:
